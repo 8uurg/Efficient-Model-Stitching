@@ -1,0 +1,1 @@
+~/.bin/pueue add -- python 2024-01-03-reevaluate-solutions.py --solutions="imagenet_b-front.arrow" --dataset-split-eval=test --problem=imagenet --stitchnet-path ./stitched-imagenet-b-a-resnet50-b-resnext50_32x4d.th --batch-size=32 --num-gpu-per-worker=0.25

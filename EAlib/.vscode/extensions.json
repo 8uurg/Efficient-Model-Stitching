@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "matepek.vscode-catch2-test-adapter",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cpptools",
+        "vadimcn.vscode-lldb",
+        "cschlosser.doxdocgen",
+        "kevinkyang.auto-comment-blocks",
+        "aaron-bond.better-comments",
+        "mesonbuild.mesonbuild"
+    ]
+}

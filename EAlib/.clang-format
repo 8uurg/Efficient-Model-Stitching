@@ -1,0 +1,7 @@
+BasedOnStyle: Microsoft
+BinPackArguments: false
+BinPackParameters: false
+BreakInheritanceList: AfterColon
+BreakConstructorInitializersBeforeComma: false
+BreakConstructorInitializers: AfterColon
+ConstructorInitializerAllOnOneLineOrOnePerLine: true

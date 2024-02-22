@@ -1,0 +1,8 @@
+[tool.mesonpep517.metadata]
+summary = "A library for working with evolutionary algorithms, written in C++."
+meson-options = ["--buildtype=release", "--unity=on"]
+
+[build-system]
+requires = ["mesonpep517"]
+build-backend = "mesonpep517.buildapi"
+

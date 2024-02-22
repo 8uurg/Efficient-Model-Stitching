@@ -1,0 +1,4 @@
+~/.bin/pueue add -- python 2024-01-03-reevaluate-solutions.py --solutions="imagenet_a-front.arrow" --dataset-split-eval=test --problem=imagenet --stitchnet-path ./stitched-imagenet-a-resnet152-b-efficientnet-b4.th --batch-size=32 --num-gpu-per-worker=0.25
+~/.bin/pueue add -- python 2024-01-03-reevaluate-solutions.py --solutions="segmentation-front.arrow" --dataset-split-eval=test --problem=voc --stitchnet-path ./stitched-voc-a-deeplab-mobilenetv3-b-deeplab-resnet50.th --batch-size=4 --num-gpu-per-worker=0.5
+
+~/.bin/pueue add -- python 2024-01-03-reevaluate-train-solutions.py --solutions="./imagenet-a-all-evals-front.arrow" --batch-size=64 --train-lr=1e-4 --batch-size-train=8 --train-epochs=1 --train-batches=1000 --problem=imagenet --stitchnet-path ./stitched-imagenet-a-resnet152-b-efficientnet-b4.th --num-gpu-per-worker=1

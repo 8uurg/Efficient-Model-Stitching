@@ -1,0 +1,10 @@
+{
+    "clangd.arguments": [
+        "-compile-commands-dir=build"
+    ],
+    "testMate.cpp.test.executables": "{build,build-debug,Build,BUILD,out,Out,OUT}/**/*{test,Test,TEST}*",
+    "lldb.displayFormat": "auto",
+    "lldb.showDisassembly": "auto",
+    "lldb.dereferencePointers": true,
+    "lldb.consoleMode": "commands",
+}

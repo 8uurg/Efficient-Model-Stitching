@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+// General
+
+message Host {
+    string host = 1;
+}
+
+message Solutions {
+    // The number of solutions that are encoded.
+    int32 num = 1;
+    // Solutions are encoded using cereal, as the relevant data and how to encode,
+    // cannot trivially be represented using protocol buffers (requiring additional
+    // work).
+    // Conversely, Cereal does support these kinds of data out-of-the-box.
+    // A sidenote of how this mechanism works however, is that a solution is generally a "patch",
+    // In order to actually query the data and interpret it (without excessive hacks!) requires
+    // the use of a population, as generally used within this codebase.
+    bytes cerealencoded = 2;
+}
+
+// EvaluationDistributor
+
+message EvaluationDistributorRegisterEvaluatorRequest {
+    Host host = 1;
+}
+message EvaluationDistributorRegisterEvaluatorResponse {
+    int64 idx = 1;
+}
+
+message EvaluationEvaluateSolutionsRequest {
+    int64 key = 1;
+    Solutions solutions = 2;
+}
+message EvaluationEvaluateSolutionsResponse {
+    int64 key = 1;
+    Solutions solutions = 2;
+}
+
+/**
+ * A service that can distribute the computation of solutions' fitness.
+ */
+service EvaluationDistributor {
+    rpc RegisterEvaluator(EvaluationDistributorRegisterEvaluatorRequest) returns (EvaluationDistributorRegisterEvaluatorResponse) {}
+    // While expected: implement service Evaluator instead!
+    // rpc EvaluateSolutions(EvaluationEvaluateSolutionsRequest) returns (EvaluationEvaluateSolutionsResponse) {}
+}
+
+service Evaluator {
+    rpc EvaluateSolutions(EvaluationEvaluateSolutionsRequest) returns (EvaluationEvaluateSolutionsResponse) {}
+}
+
+message ConnectRequest {
+}
+message ConnectResponse {
+}
+
+message DisconnectRequest {
+}
+message DisconnectResponse {
+}
+
+/*
+ * Simple service for counting connections, useful for, e.g., connection reference
+ * counting to shut down when the number of connections reaches zero.
+ */
+service Connectable {
+    rpc Connect(ConnectRequest) returns (ConnectResponse) {}
+    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {}
+}
+
+// Discovery-related Messages
+
+message DiscoveryRegisterRequest {
+    string kind = 1;
+    Host host = 2;
+}
+message DiscoveryRegisterResponse {
+    int32 id = 1;
+}
+message DiscoveryWhoRequest {
+    string kind = 1;
+}
+message DiscoveryWhoResponse {
+    message IdHost {
+        int32 id = 1;
+        Host host = 2;
+    }
+    repeated IdHost idhost = 1;
+}
+
+/**
+ * Discovery is a service for finding other services (or computational nodes).
+ * Most commonly used with the interchange type below.
+ */
+service Discovery {
+    rpc RegisterService(DiscoveryRegisterRequest) returns (DiscoveryRegisterResponse) {}
+    rpc Who(DiscoveryWhoRequest) returns (DiscoveryWhoResponse) {}
+}
+
+// EANode
+message EANodeRegisterRequest {}
+message EANodeRegisterResponse {}
+message EANodeRequestSolutionDataRequest {}
+message EANodeRequestSolutionDataResponse {}
+
+/**
+ * EANode is a node that can request other EANodes to connect to them, or to
+ * have solution data transmitted to.
+ * Note to self: are we going with a push, or a pull model?
+ */
+service EANode {
+    rpc RegisterEANode(EANodeRegisterRequest) returns (EANodeRegisterResponse) {}
+    rpc RequestSolutionData(EANodeRequestSolutionDataRequest) returns (EANodeRequestSolutionDataResponse) {}
+}

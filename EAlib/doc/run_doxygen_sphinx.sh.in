@@ -1,0 +1,2 @@
+#!/bin/sh
+@DOXYGEN_CMD@ @DOXYGEN_CONF@ && cp -r @SRCDIR@/_static @CONFDIR@ && @SPHINX_CMD@ @SRCDIR@ -c @CONFDIR@ @OUTDIR@

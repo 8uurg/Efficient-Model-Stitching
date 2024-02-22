@@ -1,0 +1,18 @@
+[requires]
+catch2/2.13.7
+trompeloeil/42
+
+#pybind11/2.9.1
+pybind11/2.11.1
+
+cereal/1.3.2
+protobuf/3.21.12
+grpc/1.54.3
+openssl/3.1.4
+
+# cpptrace/0.2.1
+# backward-cpp/1.6
+
+[generators]
+PkgConfigDeps
+MesonToolchain
