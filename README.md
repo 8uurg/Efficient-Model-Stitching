@@ -1,7 +1,7 @@
 # Efficient Model Stitching - Source Code
 This repository contains the code pertaining to the work 'Exploring the Search Space of Neural Network Combinations obtained with Efficient Model Stitching' - to be presented at GECCO 2024 - Workshop: Neuroevolution at Work.
 
-Paper (Not yet published) | [Code (Zenodo - Archived)](https://zenodo.org/doi/10.5281/zenodo.11120073) | [Data (Zenodo - Archived)](https://zenodo.org/doi/10.5281/zenodo.11120102)
+[Paper](https://dl.acm.org/doi/abs/10.1145/3638530.3664131) | [Code (Zenodo - Archived)](https://zenodo.org/doi/10.5281/zenodo.11120073) | [Data (Zenodo - Archived)](https://zenodo.org/doi/10.5281/zenodo.11120102)
 
 ## Usage
 - Clone this repository
