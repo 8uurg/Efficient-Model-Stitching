@@ -19,3 +19,12 @@ This repository contains the code pertaining to the work 'Exploring the Search S
 - After running the experiments `2024-01-02-process-run-data.ipynb` can be used to process data from an individual run, and find the approximation front.
 - The solutions on the front will be reevaluated on the test set with the commands in `2024-01-03-reevaluate-cmds.txt` (and `2024-01-15-reeval-imagenet-b.txt`).
 - Finally, `2024-01-03-process-reeval-data.ipynb` can be used to create relevant plots.
+
+# Credit
+ DAEDALUS – Distributed and Automated Evolutionary Deep Architecture Learning with Unprecedented Scalability
+
+This research code was developed as part of the research programme Open Technology Programme with project number 18373, which was financed by the Dutch Research Council (NWO), Elekta, and Ortec Logiqcare.
+
+Project leaders: Peter A.N. Bosman, Tanja Alderliesten
+Researchers: Alex Chebykin, Arthur Guijt, Vangelis Kostoulas
+Main code developer: Arthur Guijt
